@@ -1,5 +1,61 @@
 # 미션 - 크리스마스 프로모션
 
+## ✅ 기능목록
+### - 입력
+#### 1. 예상 방문 날짜 입력
+ - [ ] If input number is not a number between 1~31, print error message `[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.` 
+<br/><br/>
+#### 2. 주문할 메뉴와 개수 입력 `(e.g. 해산물파스타-2,레드와인-1,초코케이크-1)`
+ - [ ] If input has any menu not in the menu-list, print error message `[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.`
+ - [ ] The number of ordered menu should be not less than "1". Or, print error message `[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.`
+ - [ ] If the input form is different with e.g., print error message `[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.`
+ - [ ] If there is any duplicate menu, print error message `[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.`
+
+### - 출력
+#### 1. 주문 메뉴 출력 순서 제한 없음
+#### 2. 할인 전 총주문 금액 출력
+#### 3. 증정 메뉴 출력
+- 미해당시 "없음" 출력 
+#### 4. 총 혜택 금액(총 할인 금액 + 증정 메뉴 가격) 출력
+- 적용되는 이벤트 내역 출력 (출력 순서 자유)
+- 적용된 이벤트가 하나도 없다면 "없음 출력"
+#### 5. 할인 후 예상 결제 금액 출력
+#### 6. 총 혜택 금액(총 할인 금액 + 증정 메뉴 가격)에 따라 이벤트 배지 출력 (12월 이벤트 배지)
+- 배지가 부여되지 않는 경우, "없음" 출력
+
+*증정메뉴 : 샴페인(25,000원) 총주문금액 12만원 이상시 증정
+
+### - 이벤트 상세
+#### 1. 크리스마스 디데이 할인 (총 주문 금액 할인)
+ - 12월 1일; 1000원 할인
+ - 하루가 지날수록 100원씩 할인 금액 증가
+ - 12월 25일; 3,400원 할인
+ - 이후 할인 종료
+
+#### 2. 평일 할인 (일~목)
+ - 디저트 메뉴 1개당 2,023원 할인
+
+#### 3. 주말 할인 (금, 토)
+ - 메인 메뉴 1개당 2,023원 할인
+
+#### 4. 특별 할인
+ - 매주 일요일, 크리스마스 당일 총 주문금액에서 1,000원 할인
+
+#### 5. 증정이벤트
+ - 총 주문 금액(할인 전 금액)이 12만원 이상일 때, 샴페인(25,000원) 1개 증정
+
+### - 기타
+- [ ] Indent depth : 2 or less
+- [ ] Method length(number of lines) : 15 or less
+- [ ] Avoid `else` statement as much as possible (Follow coding convention)
+- [ ] Throw `IllegalArgumentException` if input is wrong
+  - Print error message
+  - Get input again
+- Make `InputView` and `OutputView` classes.
+
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
 ## 🔍 진행 방식
 
 - 미션은 **기능 요구 사항, 프로그래밍 요구 사항, 과제 진행 요구 사항** 세 가지로 구성되어 있다.
