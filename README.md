@@ -6,10 +6,10 @@
  - [x] If input number is not a number between 1~31, print error message `[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.` 
 <br/><br/>
 #### 2. 주문할 메뉴와 개수 입력 `(e.g. 해산물파스타-2,레드와인-1,초코케이크-1)`
- - [ ] If input has any menu not in the menu-list, print error message `[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.`
- - [ ] The number of ordered menu should be not less than "1". Or, print error message `[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.`
- - [ ] If the input form is different with e.g., print error message `[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.`
- - [ ] If there is any duplicate menu, print error message `[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.`
+ - [x] If input has any menu not in the menu-list, print error message `[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.`
+ - [x] The number of ordered menu should be not less than "1". Or, print error message `[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.`
+ - [x] If the input form is different with e.g., print error message `[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.`
+ - [x] If there is any duplicate menu, print error message `[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.`
 
 ### - 출력
 #### 1. 주문 메뉴 출력 순서 제한 없음
