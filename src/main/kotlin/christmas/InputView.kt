@@ -1,6 +1,7 @@
 package christmas
 
 import camp.nextstep.edu.missionutils.Console
+import christmas.MenuList.Companion.drinkMenu
 import christmas.MenuList.Companion.menuList
 import java.lang.IllegalArgumentException
 import java.lang.NumberFormatException
@@ -38,26 +39,26 @@ class InputView {
     }
 
     fun validateOrders(orders: String): List<Order> {
-        val validOrderList = mutableListOf<Order>()
+        lateinit var validOrderList : List<Order>
         try {
-            //null case
-            require(orders.isNotEmpty()) { "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요." }
-            //contains space
-            require(!orders.contains(" ")) { "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요." }
+            require(orders.isNotEmpty() || !orders.contains(" ")) { "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요." }
             val orderList = orders.split(',')
-            //음료만 주문한 경우도
-            //TODO()
             require(checkNameOfMenu(orderList)) { "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요." }
             require(checkDuplicateMenu(orderList)) { "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요." }
             require(checkNumberOfMenu(orderList)) { "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요." }
             require(checkTotalNumberOfMenu(orderList)) { "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요." }
-            for (i in orderList.indices) {
-                val (menu, num) = orderList[i].split('-')
-                validOrderList.add(Order(menu, num.toInt()))
-            }
+            validOrderList = getValidOrderList(orderList)
         } catch (exception: NumberFormatException) {
-            //throw IllegalArgumentException("뭔가 에러임.")
             throw IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.")
+        }
+        return validOrderList
+    }
+
+    fun getValidOrderList(orderList: List<String>) : List<Order> {
+        val validOrderList = mutableListOf<Order>()
+        for (i in orderList.indices) {
+            val (menu, num) = orderList[i].split('-')
+            validOrderList.add(Order(menu, num.toInt()))
         }
         return validOrderList
     }
