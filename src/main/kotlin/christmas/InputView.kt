@@ -45,6 +45,7 @@ class InputView {
             val orderList = orders.split(',')
             require(checkNameOfMenu(orderList)) { "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요." }
             require(checkDuplicateMenu(orderList)) { "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요." }
+            require(checkOrderOnlyDrink(orderList)) { "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요." }
             require(checkNumberOfMenu(orderList)) { "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요." }
             require(checkTotalNumberOfMenu(orderList)) { "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요." }
             validOrderList = getValidOrderList(orderList)
@@ -74,6 +75,13 @@ class InputView {
         for (i in orderList.indices)
             list.add(orderList[i].split('-')[0])
         if (list.distinct().size == orderList.size) return true
+        return false
+    }
+
+    fun checkOrderOnlyDrink(orderList: List<String>): Boolean {
+        orderList.forEach {
+            if (!drinkMenu.contains(it.split('-')[0])) return true
+        }
         return false
     }
 
