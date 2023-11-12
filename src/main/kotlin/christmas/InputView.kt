@@ -1,6 +1,7 @@
 package christmas
 
 import camp.nextstep.edu.missionutils.Console
+import christmas.MenuList.Companion.menuList
 import java.lang.IllegalArgumentException
 import java.lang.NumberFormatException
 
