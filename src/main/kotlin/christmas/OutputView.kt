@@ -42,7 +42,7 @@ class OutputView {
 
     fun printTotalBenefitPrice(totalBenefitPrice: Int) {
         println("\n<총혜택 금액>")
-        if (totalBenefitPrice == 0) println("없음")
+        if (totalBenefitPrice == 0) println("0원")
         else println("-${decimalFormat.format(totalBenefitPrice)}원")
     }
 

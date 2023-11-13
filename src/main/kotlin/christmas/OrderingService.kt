@@ -23,7 +23,7 @@ class OrderingService {
         outputView.printOrderList(orders)
         outputView.printPriceBeforeDiscount(getTotalPrice(orders))
         outputView.printComplimentaryMenu(getTotalPrice(orders))
-        outputView.printBenefitList(getBenefitList(visitDate, orders))
+        outputView.printBenefitList(getBenifitList(visitDate, orders))
         outputView.printTotalBenefitPrice(getTotalBenefitAmount(visitDate, orders))
         outputView.printExpectedPriceAfterDiscount(getTotalPrice(orders), getTotalDiscountAmount(visitDate, orders))
         outputView.printEventBadge(getBadge(visitDate, orders))
@@ -46,7 +46,7 @@ class OrderingService {
         else "없음"
     }
 
-    fun getBenefitList(date: Int, orders: List<Order>): String {
+    fun getBenifitList(date: Int, orders: List<Order>): String {
         if (getTotalPrice(orders) < 10000) return "없음\n"
         var benefitList = ""
         benefitList += getDDayBenefitString(date)
@@ -66,7 +66,7 @@ class OrderingService {
 
     fun getWeeklyBenefitString(date: Int, orders: List<Order>): String {
         if (getWeeklyDiscountAmount(date, orders) != 0) {
-            if (date % 7 == 1 || date % 7 == 2) return "평일 할인: -${
+            if (date % 7 == 1 || date % 7 == 2) return "주말 할인: -${
                 decimalFormat.format(
                     getWeeklyDiscountAmount(
                         date,
@@ -74,7 +74,7 @@ class OrderingService {
                     )
                 )
             }원\n"
-            return "주말 할인: -${decimalFormat.format(getWeeklyDiscountAmount(date, orders))}원\n"
+            return "평일 할인: -${decimalFormat.format(getWeeklyDiscountAmount(date, orders))}원\n"
         }
         return ""
     }
@@ -85,7 +85,7 @@ class OrderingService {
     }
 
     fun getComplimentaryBenefitString(orders: List<Order>): String {
-        if (getTotalPrice(orders) < 120000) return "증정 이벤트: -25,000원\n"
+        if (getTotalPrice(orders) >= 120000) return "증정 이벤트: -25,000원\n"
         return ""
     }
 
