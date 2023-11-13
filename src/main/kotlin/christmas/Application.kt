@@ -4,4 +4,3 @@ fun main() {
     val orderingService = OrderingService()
     orderingService.run()
 }
-

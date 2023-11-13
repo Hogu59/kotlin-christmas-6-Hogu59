@@ -39,7 +39,7 @@ class InputView {
     }
 
     fun validateOrders(orders: String): List<Order> {
-        lateinit var validOrderList : List<Order>
+        lateinit var validOrderList: List<Order>
         try {
             require(orders.isNotEmpty() || !orders.contains(" ")) { "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요." }
             val orderList = orders.split(',')
@@ -55,7 +55,7 @@ class InputView {
         return validOrderList
     }
 
-    fun getValidOrderList(orderList: List<String>) : List<Order> {
+    fun getValidOrderList(orderList: List<String>): List<Order> {
         val validOrderList = mutableListOf<Order>()
         for (i in orderList.indices) {
             val (menu, num) = orderList[i].split('-')

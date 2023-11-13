@@ -302,14 +302,36 @@ class ApplicationTest : NsTest() {
 
     @Test
     fun `기능 확인 테스트 (할인 후 예상 결제 금액 - 만원 이하)`() {
-        outputView.printExpectedPriceAfterDiscount(orderingService.getTotalPrice(ordersUnder10000), orderingService.getTotalDiscountAmount(3, ordersUnder10000))
-        assertThat(output().trim()).isEqualTo("<할인 후 예상 결제 금액>${LINE_SEPARATOR}${decimalFormat.format(orderingService.getTotalPrice(ordersUnder10000))}원")
+        outputView.printExpectedPriceAfterDiscount(
+            orderingService.getTotalPrice(ordersUnder10000),
+            orderingService.getTotalDiscountAmount(3, ordersUnder10000)
+        )
+        assertThat(output().trim()).isEqualTo(
+            "<할인 후 예상 결제 금액>${LINE_SEPARATOR}${
+                decimalFormat.format(
+                    orderingService.getTotalPrice(
+                        ordersUnder10000
+                    )
+                )
+            }원"
+        )
     }
 
     @Test
     fun `기능 확인 테스트 (할인 후 예상 결제 금액 - 12만원 이상 (샴페인 가격 안 빠지는지 확인))`() {
-        outputView.printExpectedPriceAfterDiscount(orderingService.getTotalPrice(ordersOver120000), orderingService.getTotalDiscountAmount(3, ordersOver120000))
-        assertThat(output().trim()).isEqualTo("<할인 후 예상 결제 금액>${LINE_SEPARATOR}${decimalFormat.format(orderingService.getTotalPrice(ordersOver120000)-4223)}원")
+        outputView.printExpectedPriceAfterDiscount(
+            orderingService.getTotalPrice(ordersOver120000),
+            orderingService.getTotalDiscountAmount(3, ordersOver120000)
+        )
+        assertThat(output().trim()).isEqualTo(
+            "<할인 후 예상 결제 금액>${LINE_SEPARATOR}${
+                decimalFormat.format(
+                    orderingService.getTotalPrice(
+                        ordersOver120000
+                    ) - 4223
+                )
+            }원"
+        )
     }
 
     @Test

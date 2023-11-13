@@ -37,8 +37,7 @@ class OrderingService {
     }
 
     fun menuPriceMapInit() {
-        for (i in menuList.indices)
-            menuPriceMap[menuList[i]] = priceList[i]
+        for (i in menuList.indices) menuPriceMap[menuList[i]] = priceList[i]
     }
 
     fun checkComplimentary(price: Int): String {
@@ -59,21 +58,13 @@ class OrderingService {
     }
 
     fun getDDayBenefitString(date: Int): String {
-        if (getDDayDiscountAmount(date) != 0)
-            return "크리스마스 디데이 할인: -${decimalFormat.format(getDDayDiscountAmount(date))}원\n"
+        if (getDDayDiscountAmount(date) != 0) return "크리스마스 디데이 할인: -${decimalFormat.format(getDDayDiscountAmount(date))}원\n"
         return ""
     }
 
     fun getWeeklyBenefitString(date: Int, orders: List<Order>): String {
         if (getWeeklyDiscountAmount(date, orders) != 0) {
-            if (date % 7 == 1 || date % 7 == 2) return "주말 할인: -${
-                decimalFormat.format(
-                    getWeeklyDiscountAmount(
-                        date,
-                        orders
-                    )
-                )
-            }원\n"
+            if (date % 7 == 1 || date % 7 == 2) return "주말 할인: -${decimalFormat.format(getWeeklyDiscountAmount(date, orders))}원\n"
             return "평일 할인: -${decimalFormat.format(getWeeklyDiscountAmount(date, orders))}원\n"
         }
         return ""
@@ -126,8 +117,7 @@ class OrderingService {
     fun getWeekendDiscountAmount(orders: List<Order>): Int {
         var discountAmount = 0
         orders.forEach {
-            if (mainMenu.contains(it.name))
-                discountAmount += it.num * 2023
+            if (mainMenu.contains(it.name)) discountAmount += it.num * 2023
         }
         return discountAmount
     }
@@ -135,8 +125,7 @@ class OrderingService {
     fun getWeekdayDiscountAmount(orders: List<Order>): Int {
         var discountAmount = 0
         orders.forEach {
-            if (dessertMenu.contains(it.name))
-                discountAmount += it.num * 2023
+            if (dessertMenu.contains(it.name)) discountAmount += it.num * 2023
         }
         return discountAmount
     }
