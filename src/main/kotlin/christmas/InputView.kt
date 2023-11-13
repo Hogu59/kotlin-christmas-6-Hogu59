@@ -49,9 +49,7 @@ class InputView {
             require(checkNumberOfMenu(orderList)) { ERROR_UNVALID_ORDER }
             require(checkTotalNumberOfMenu(orderList)) { ERROR_UNVALID_ORDER }
             validOrderList = getValidOrderList(orderList)
-        } catch (exception: NumberFormatException) {
-            throw IllegalArgumentException(ERROR_UNVALID_ORDER)
-        }
+        } catch (exception: NumberFormatException) { throw IllegalArgumentException(ERROR_UNVALID_ORDER) }
         return validOrderList
     }
 

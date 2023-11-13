@@ -41,8 +41,8 @@ class OrderingService {
     }
 
     fun checkComplimentary(price: Int): String {
-        return if (price >= COMPLIMENTARY_CRITERIA) CHAMPAGNE
-        else NONE
+        if (price >= COMPLIMENTARY_CRITERIA) return CHAMPAGNE
+        return NONE
     }
 
     fun getBenifitList(date: Int, orders: List<Order>): String {
