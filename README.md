@@ -50,10 +50,12 @@
 #### 3. 메뉴는 최대 20개까지 주문 가능. 20개 초과 불가.
 
 ### - 기타
-- [ ] Indent depth : 2 or less
-- [ ] Method length(number of lines) : 15 or less
-- [ ] Avoid `else` statement as much as possible (Follow coding convention)
-- [ ] Throw `IllegalArgumentException` if input is wrong
+- [x] Indent depth : 2 or less
+- [x] Method length(number of lines) : 15 or less
+- [x] Avoid `else` statement as much as possible (Follow coding convention) - used twice.
+ * OrderingService.getBadge(); Inevitable because of when statement.
+ * OutputView.printComplimentaryMenu(); Thought it is an optimal code.
+- [x] Throw `IllegalArgumentException` if input is wrong
   - Print error message
   - Get input again
 - Make `InputView` and `OutputView` classes.
