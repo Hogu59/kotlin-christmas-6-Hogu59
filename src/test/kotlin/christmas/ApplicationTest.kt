@@ -19,13 +19,7 @@ class ApplicationTest : NsTest() {
         assertSimpleTest {
             run("3", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1")
             assertThat(output()).contains(
-                "<주문 메뉴>",
-                "<할인 전 총주문 금액>",
-                "<증정 메뉴>",
-                "<혜택 내역>",
-                "<총혜택 금액>",
-                "<할인 후 예상 결제 금액>",
-                "<12월 이벤트 배지>"
+                "<주문 메뉴>", "<할인 전 총주문 금액>", "<증정 메뉴>", "<혜택 내역>", "<총혜택 금액>", "<할인 후 예상 결제 금액>", "<12월 이벤트 배지>"
             )
         }
     }
@@ -303,16 +297,11 @@ class ApplicationTest : NsTest() {
     @Test
     fun `기능 확인 테스트 (할인 후 예상 결제 금액 - 만원 이하)`() {
         outputView.printExpectedPriceAfterDiscount(
-            orderingService.getTotalPrice(ordersUnder10000),
-            orderingService.getTotalDiscountAmount(3, ordersUnder10000)
+            orderingService.getTotalPrice(ordersUnder10000), orderingService.getTotalDiscountAmount(3, ordersUnder10000)
         )
         assertThat(output().trim()).isEqualTo(
             "<할인 후 예상 결제 금액>${LINE_SEPARATOR}${
-                decimalFormat.format(
-                    orderingService.getTotalPrice(
-                        ordersUnder10000
-                    )
-                )
+                decimalFormat.format(orderingService.getTotalPrice(ordersUnder10000))
             }원"
         )
     }
@@ -320,16 +309,11 @@ class ApplicationTest : NsTest() {
     @Test
     fun `기능 확인 테스트 (할인 후 예상 결제 금액 - 12만원 이상 (샴페인 가격 안 빠지는지 확인))`() {
         outputView.printExpectedPriceAfterDiscount(
-            orderingService.getTotalPrice(ordersOver120000),
-            orderingService.getTotalDiscountAmount(3, ordersOver120000)
+            orderingService.getTotalPrice(ordersOver120000), orderingService.getTotalDiscountAmount(3, ordersOver120000)
         )
         assertThat(output().trim()).isEqualTo(
             "<할인 후 예상 결제 금액>${LINE_SEPARATOR}${
-                decimalFormat.format(
-                    orderingService.getTotalPrice(
-                        ordersOver120000
-                    ) - 4223
-                )
+                decimalFormat.format(orderingService.getTotalPrice(ordersOver120000) - 4223)
             }원"
         )
     }
