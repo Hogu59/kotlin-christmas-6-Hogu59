@@ -4,7 +4,6 @@
 ### - 입력
 #### 1. 예상 방문 날짜 입력
  - [x] If input number is not a number between 1~31, print error message `[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.` 
-<br/><br/>
 #### 2. 주문할 메뉴와 개수 입력 `(e.g. 해산물파스타-2,레드와인-1,초코케이크-1)`
  - [x] If input has any menu not in the menu-list, print error message `[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.`
  - [x] The number of ordered menu should be not less than "1". Or, print error message `[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.`
@@ -58,7 +57,7 @@
 - [x] Throw `IllegalArgumentException` if input is wrong
   - Print error message
   - Get input again
-- Make `InputView` and `OutputView` classes.
+- [x] Make `InputView` and `OutputView` classes.
 
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
